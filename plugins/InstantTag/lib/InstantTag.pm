@@ -19,9 +19,10 @@ sub _hdlr_instant_tag {
         $instanttags->{$args->{name}} = $hdlr;
         $ctx->stash('__instanttags', $instanttags);
     }
-
-    $instanttags->{__anonymous} = $hdlr;
-    $ctx->stash('__instanttags', $instanttags);
+    else {
+        $instanttags->{__anonymous} = $hdlr;
+        $ctx->stash('__instanttags', $instanttags);
+    }
 
     return;
 }
