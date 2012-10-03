@@ -1,0 +1,87 @@
+=head1 NAME
+
+InstantTag - プラグインの設定なしで使える即席MTタグを定義.
+
+=head1 SYNOPSIS
+
+ <mt:instanttag name="hello">
+ sub {
+   my ($ctx, $args) = @_;
+   "hello, $args->{yourname}!!"
+ }
+ </mt:instanttag>
+ ...
+ <p><mt:call caller="hello" yourname="taiju" /></p>
+
+=head1 DESCRIPTION
+
+InstantTag はプラグインの設定なしで使える即席MTタグを定義するためのプラグインです。
+即席MTタグを定義する場合は、B<MTInstantTag>を使います。
+即席MTタグは B<MTCall>, B<MTCallFunction>, または B<MTCallBlock> タグを使って呼び出されます.
+
+=head1 TAGS
+
+=over 4
+
+=item <MTInstantTags name="..."> ... </MTInstantTags>
+
+MTInstantTagはnameモディファイアと値を持ちます。
+nameモディファイアには、即席MTタグの名前を指定します。
+値には即席MTタグのハンドラ関数を指定します。
+
+=item <MTCall caller="..." />
+
+MTCallFunctionのエイリアスです。
+
+=item <MTCallFunction caller="..." />
+
+定義した即席MTタグがファンクションタグの場合、このMTCallFunctionを使ってください。
+MTCallFunctionは、callerモディファイアを持ちます。
+callerモディファイアには、定義した即席MTタグで指定した名前を指定します。
+その他のモディファイアは、即席MTタグのハンドラ関数に利用されます。
+
+=item <MTCallBlock caller="..."> ... </MTCallBlock>
+
+MTCallBlockタグは、MTCallFunctionタグのブロックタグ版です。
+定義した即席MTタグがブロックタグの場合、このMTCallBlockを使ってください。
+
+=back
+
+=head1 TIPS
+
+MTInstantTagは、ひとつだけ匿名の即席MTタグを持つことができます。 
+
+B<例>:
+
+ <mt:instanttag>
+ sub {
+   my ($ctx, $args) = @_;
+   "hello, $args->{yourname}!!"
+ }
+ </mt:instanttag>
+ ...
+ <p><mt:call yourname="taiju" /></p>
+
+MTInstantTagタグでnameモディファイアを省略した場合、その即席MTタグは匿名の即席MTタグになります。
+MTCallタグ、MTCallFunctionタグ、MTCallBlockタグのいずれかでcallerモディファイアを省略した場合、匿名の即席MTタグが使用されます。
+ただし、匿名の即席MTタグはひとつしか存在できません。次の匿名の即席MTタグを定義した時、一つ前の匿名の即席MTタグは上書きされます。
+
+=head1 TODO
+
+=over 4
+
+=item * PHPのサポート
+
+=back
+
+=head1 AUTHOR
+
+HIGASHI Taiju E<lt>higashi@taiju.infoE<gt>
+  
+=head1 LICENSE
+
+このライブラリはフリーソフトウェアです。
+あなたはこれを再配布、および、または変更することができます。
+Perlと同じ条件の元で。
+
+=cut

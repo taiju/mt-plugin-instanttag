@@ -1,0 +1,88 @@
+=head1 NAME
+
+InstantTag - can define a instantly mt tag without plugin setup.
+
+=head1 SYNOPSIS
+
+ <mt:instanttag name="hello">
+ sub {
+   my ($ctx, $args) = @_;
+   "hello, $args->{yourname}!!"
+ }
+ </mt:instanttag>
+ ...
+ <p><mt:call caller="hello" yourname="taiju" /></p>
+
+=head1 DESCRIPTION
+
+InstantTag can define a instantly mt tag without plugin setup.
+When you want make instantly mt tag, use B<MTInstantTag> Tag.
+Your instantly mt tag is called by B<MTCall>, B<MTCallFunction>, or B<MTCallBlock> Tags.
+
+=head1 TAGS
+
+=over 4
+
+=item <MTInstantTags name="..."> ... </MTInstantTags>
+
+MTInstantTag has name modifier, and value.
+Name modifier is name of your instantly mt tag.
+Value is handler function of your instantly mt tag.
+
+=item <MTCall caller="..." />
+
+MTCall is alias of MTCallFunction.
+
+=item <MTCallFunction caller="..." />
+
+When your instantly mt tag is function tags, you should use this MTCallFunction.
+MTCallFunction has caller modifier. 
+Caller modifier is name of your instantly mt tag that you have named in MTInstantTag.
+Else modifier is used to be handler function your instantly mt tag.
+
+=item <MTCallBlock caller="..."> ... </MTCallBlock>
+
+MTCallBlock is version of block tags of MTCallFunction.
+When your instantly mt tag is block tags, you should use this MTCallBlock.
+
+=back
+
+=head1 TIPS
+
+MTInstantTag can have a one anonymouse instantly mt tag. 
+
+B<Example>:
+
+ <mt:instanttag>
+ sub {
+   my ($ctx, $args) = @_;
+   "hello, $args->{yourname}!!"
+ }
+ </mt:instanttag>
+ ...
+ <p><mt:call yourname="taiju" /></p>
+
+If you omit the name modifier in MTInstantTag. Its anonymouse instantly mt tag.
+The anonymouse instantly mt tag used to be either MTCall, MTCallFunction and MTCallblock with omit the caller modifier.
+If you omit the caller modifier in either MTCall tag, MTCallFunction tag, MTCallBlock tag, instant anonymous mt tag is used.
+But, you can only have one anounymouse instantly mt tag.
+When you define next anonymouse instantly mt tag, overwrite previous anonymouse instantly mt tag.
+
+=head1 TODO
+
+=over 4
+
+=item * support php
+
+=back
+
+=head1 AUTHOR
+
+HIGASHI Taiju E<lt>higashi@taiju.infoE<gt>
+  
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut

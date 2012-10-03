@@ -1,0 +1,15 @@
+id: instanttag
+key: instanttag
+name: InstantTag
+version: 0.1
+description: define and use MT tags without plugin setup.
+author_name: HIGASHI Taiju
+author_link: http://taiju.hatenablog.com/
+doc_link: http://github.com/taiju
+tags:
+  function:
+    Call: $InstantTag::InstantTag::_hdlr_call
+    CallFunction: $InstantTag::InstantTag::_hdlr_call
+  block:
+    CallBlock: $InstantTag::InstantTag::_hdlr_call
+    InstantTag: $InstantTag::InstantTag::_hdlr_instant_tag

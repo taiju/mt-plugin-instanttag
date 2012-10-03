@@ -1,0 +1,7 @@
+[
+{ "r" : "1", "t" : "", "e" : "" },
+{ "r" : "1", "t" : "<MTInstantTag></MTInstantTag>", "e" : "" },
+{ "r" : "1", "t" : "<MTInstantTag>sub { my ($ctx, $args) = @_; $args->{name}; }</MTInstantTag><MTCall name=\"taiju\" />", "e" : "taiju" },
+{ "r" : "1", "t" : "<MTInstantTag name=\"foo\">sub { my ($ctx, $args) = @_; $args->{name}; }</MTInstantTag><MTCallFunction caller=\"foo\" name=\"taiju\" />", "e" : "taiju" },
+{ "r" : "1", "t" : "<MTInstantTag name=\"baz\">sub { my ($ctx, $args, $cond) = @_; $ctx->stash('builder')->build($ctx, $ctx->stash('tokens'), $cond) . $args->{name}; }</MTInstantTag><MTCallBlock caller=\"baz\" name=\"taiju\">Hello!! </MTCallBlock>", "e" : "Hello!! taiju" }
+]
