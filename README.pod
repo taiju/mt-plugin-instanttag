@@ -53,7 +53,7 @@ MTCallBlockタグは、MTCallFunctionタグのブロックタグ版です。
 
 MTInstantTagは、ひとつだけ匿名の即席MTタグを持つことができます。 
 
-B<例>:
+B<例1>:
 
  <mt:instanttag>
  sub {
@@ -67,6 +67,19 @@ B<例>:
 MTInstantTagタグでnameモディファイアを省略した場合、その即席MTタグは匿名の即席MTタグになります。
 MTCallタグ、MTCallFunctionタグ、MTCallBlockタグのいずれかでcallerモディファイアを省略した場合、匿名の即席MTタグが使用されます。
 ただし、匿名の即席MTタグはひとつしか存在できません。次の匿名の即席MTタグを定義した時、一つ前の匿名の即席MTタグは上書きされます。
+
+B<例2>:
+
+  <mt:instanttag>sub { "hello!!" }</mt:instanttag>
+  ...
+  <p><mt:call /></p>
+  ...
+  <mt:instanttag>sub { "good bye!!" }</mt:instanttag>
+  ...
+  <p><mt:call /></p>
+
+この例のように複数回、匿名の即席MTタグを利用することができます。
+MTCallタグでは、直近のMTInstantTagのハンドラ関数が利用されます。
 
 =head1 TODO
 

@@ -51,7 +51,7 @@ When your instantly mt tag is block tags, you should use this MTCallBlock.
 
 MTInstantTag can have a one anonymouse instantly mt tag. 
 
-B<Example>:
+B<Example1>:
 
  <mt:instanttag>
  sub {
@@ -67,6 +67,19 @@ The anonymouse instantly mt tag used to be either MTCall, MTCallFunction and MTC
 If you omit the caller modifier in either MTCall tag, MTCallFunction tag, MTCallBlock tag, instant anonymous mt tag is used.
 But, you can only have one anounymouse instantly mt tag.
 When you define next anonymouse instantly mt tag, overwrite previous anonymouse instantly mt tag.
+
+B<Example2>:
+
+  <mt:instanttag>sub { "hello!!" }</mt:instanttag>
+  ...
+  <p><mt:call /></p>
+  ...
+  <mt:instanttag>sub { "good bye!!" }</mt:instanttag>
+  ...
+  <p><mt:call /></p>
+
+You can use anonymous instantly mt tag more than once as in this example.
+Its MTCall tags use defined last handler function that MTInstantTag tags has.
 
 =head1 TODO
 
