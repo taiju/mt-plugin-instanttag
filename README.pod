@@ -92,7 +92,7 @@ MTCallタグでは、直近のMTInstantTagのハンドラ関数が利用され�
 =head1 AUTHOR
 
 HIGASHI Taiju E<lt>higashi@taiju.infoE<gt>
-  
+
 =head1 LICENSE
 
 このライブラリはフリーソフトウェアです。
