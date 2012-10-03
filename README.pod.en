@@ -79,7 +79,7 @@ B<Example2>:
   <p><mt:call /></p>
 
 You can use anonymous instantly mt tag more than once as in this example.
-Its MTCall tags use defined last handler function that MTInstantTag tags has.
+Its MTCall tags use defined last handler function that anonymous MTInstantTag tags has.
 
 =head1 TODO
 

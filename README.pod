@@ -79,7 +79,7 @@ B<例2>:
   <p><mt:call /></p>
 
 この例のように複数回、匿名の即席MTタグを利用することができます。
-MTCallタグでは、直近のMTInstantTagのハンドラ関数が利用されます。
+MTCallタグでは、直近の匿名のMTInstantTagのハンドラ関数が利用されます。
 
 =head1 TODO
 
